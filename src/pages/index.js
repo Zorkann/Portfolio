@@ -21,18 +21,27 @@ const NameText = styled.h1`
 
 const DescriptionText = styled.h3`
   margin: 0;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
 `
 
 const IconContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, min-content);
-  grid-gap: 1rem;
+  grid-gap: 1.5rem;
+  svg {
+    font-size: 3.5rem;
+    :hover {
+      cursor: pointer;
+    }
+  }
 `
 
 const ButtonsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-auto-rows: 5rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 8rem;
+  align-items: end;
   grid-gap: 1rem;
 `
 
@@ -47,36 +56,59 @@ const Button = styled.button`
     border-color: rgb(244, 8, 22);
     cursor: pointer;
   }
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
 `
+
+const SomeContent = styled.div`
+  border: 1px solid red;
+  grid-column-start: 5;
+  grid-column-end: auto-fill;
+  grid-row-start: 1;
+  grid-row-end: auto-fill;
+`
+
+const Container = styled.div`
+  grid-row-start: 1;
+  grid-row-end: 6;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  display: grid;
+`
+
+const Icon = styled.a``
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="About me" />
-    <div>
+    <Container>
+      <SEO title="About me" />
       <GreetingText>Hello, I am</GreetingText>
       <NameText>Marcin</NameText>
       <NameText>Skowyra</NameText>
       <DescriptionText>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-        sollicitudin tellus erat, in bibendum leo lacinia eu. Vivamus mi lectus,
-        sodales eu placerat et, porta vitae sapien. Proin justo nulla, maximus
-        sed est eu, laoreet egestas purus. Vivamus lacinia facilisis mauris, id
-        lobortis
+        A young Frontend Developer interesting in mobile and web applications
       </DescriptionText>
-    </div>
-    <div>
-      <span>Fine Me on</span>
+      <span style={{ paddingBottom: "1rem" }}>Fine Me on</span>
       <IconContainer>
-        <GitHubIcon style={{ fontSize: "3.5rem" }} />
-        <FacebookIcon style={{ fontSize: "3.5rem" }} />
-        <InstagramIcon style={{ fontSize: "3.5rem" }} />
-        <LinkedInIcon style={{ fontSize: "3.5rem" }} />
+        <a href="/">
+          <GitHubIcon />
+        </a>
+        <a href="/">
+          <FacebookIcon />
+        </a>
+        <a href="/">
+          <InstagramIcon />
+        </a>
+        <a href="/">
+          <LinkedInIcon />
+        </a>
       </IconContainer>
-    </div>
-    <ButtonsContainer>
-      <Button>Hire Me</Button>
-      <Button>Portfolio</Button>
-    </ButtonsContainer>
+      <ButtonsContainer>
+        <Button>Hire Me</Button>
+        <Button>Portfolio</Button>
+      </ButtonsContainer>
+    </Container>
+    <SomeContent>SomeConent</SomeContent>
   </Layout>
 )
 

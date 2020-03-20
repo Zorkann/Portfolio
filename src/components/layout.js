@@ -11,16 +11,17 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  background: rgb(15, 13, 56);
   height: 100vh;
 `
 
 const Main = styled.main`
   grid-column-start: 2;
   grid-column-end: 12;
-  grid-row-start: 4;
+  grid-row-start: 3;
+  grid-row-end: auto-fill;
   display: grid;
-  grid-gap: 20px;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
 `
 
 const Layout = ({ children }) => {

@@ -50,7 +50,7 @@ const Header = ({ siteTitle }) => (
         Skills
       </StyledLink>
       <StyledLink
-        to="/contect"
+        to="/contact"
         activeStyle={{ backgroundColor: "rgb(244, 8, 22)" }}
       >
         Contact
