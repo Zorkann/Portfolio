@@ -12,16 +12,7 @@ const Container = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
   height: 100vh;
-`
-
-const Main = styled.main`
-  grid-column-start: 2;
-  grid-column-end: 12;
-  grid-row-start: 3;
-  grid-row-end: auto-fill;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(10, 1fr);
+  background: linear-gradient(rgb(15, 13, 56), rgb(130, 8, 22));
 `
 
 const Layout = ({ children }) => {
@@ -37,9 +28,9 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
       <Container>
-        <Main>{children}</Main>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        {children}
       </Container>
     </>
   )

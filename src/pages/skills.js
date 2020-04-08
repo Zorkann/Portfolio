@@ -3,188 +3,96 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
+import { useSpring, animated, config } from "react-spring"
+import Skills from "../components/skills"
 
-import ReactIcon from "../images/react5-icon.svg"
-import ReduxIcon from "../images/redux-icon.png"
-import HtmlIcon from "../images/html2-icon.png"
-import CssIcon from "../images/css-icon.png"
-import JsIcon from "../images/js-icon.png"
-import SassIcon from "../images/sass5-icon.svg"
-import NodeIcon from "../images/node5-icon.svg"
-import AntDIcon from "../images/antd-icon.png"
-import InvisionIcon from "../images/invision-icon.png"
-import SketchIcon from "../images/sketch-icon.png"
-import TypescriptIcon from "../images/typescript-icon.svg"
-import WebpackIcon from "../images/webpack-icon.png"
-import JestIcon from "../images/jest-icon.png"
-import ReactTestingLibraryIcon from "../images/reactTestingLibrary-icon.png"
-import CypressIcon from "../images/cypress-icon.png"
-
-const Skill = styled.div`
+const Block = styled(animated.div)`
   display: flex;
-  font-size: 1.4rem;
-  width: 100%;
-  justify-content: flex-start;
-  img {
-    width: 4rem;
-    height: 4rem;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  background: linear-gradient(rgb(120, 13, 56), rgb(130, 8, 22));
+  box-shadow: 0px 0px 25px 3px rgba(0, 0, 0, 0.5);
+`
+
+const TestingBlock = styled(Block)`
+  width: 50%;
+  justify-self: end;
+
+  @media (max-width: 1250px) {
+    justify-self: start;
+    width: 75%;
   }
-  span {
-    align-self: center;
-    padding-left: 2rem;
+`
+
+const ProgrammingBlock = styled(Block)`
+  width: 75%;
+
+  @media (max-width: 1250px) {
+    width: 100%;
+  }
+`
+const OtherBlock = styled(Block)`
+  justify-self: start;
+  width: 50%;
+
+  @media (max-width: 1250px) {
+    width: 75%;
+    justify-self: end;
   }
 `
 
-const TestingSkills = styled.div`
+const SkillsContainer = styled.div`
   display: grid;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   justify-items: center;
-  align-items: start;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 8;
+  grid-template-rows: 1fr;
+  grid-column: 2/12;
+  grid-row: 3/12;
 `
 
-const ProgrammingSkills = styled.div`
-  display: grid;
-  justify-items: center;
-  align-items: start;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-start: 4;
-  grid-column-end: 7;
-  grid-row-start: 1;
-  grid-row-end: 8;
-`
-const OtherSkills = styled.div`
-  display: grid;
-  grid-template-rows: repeat(5, 1fr);
-  justify-items: center;
-  align-items: start;
-  grid-column-start: 8;
-  grid-column-end: 10;
-  grid-row-start: 1;
-  grid-row-end: 8;
-`
+const SkillsComponent = () => {
+  const sideSkillsAnimation = useSpring({
+    from: { height: "0%", opacity: 0 },
+    to: { height: "75%", opacity: 1 },
+    delay: 200,
+    config: config.slow,
+  })
 
-const skillsData = {
-  programming: [
-    {
-      title: "React",
-      Icon: ReactIcon,
-      alt: "React Icon",
-    },
-    {
-      title: "Redux",
-      Icon: ReduxIcon,
-      alt: "Redux Icon",
-    },
-    {
-      title: "Html",
-      Icon: HtmlIcon,
-      alt: "Html Icon",
-    },
-    {
-      title: "Css",
-      Icon: CssIcon,
-      alt: "Css Icon",
-    },
-    {
-      title: "Js",
-      Icon: JsIcon,
-      alt: "Js Icon",
-    },
-    {
-      title: "Typescript",
-      Icon: TypescriptIcon,
-      alt: "Typescript Icon",
-    },
-    {
-      title: "Sass",
-      Icon: SassIcon,
-      alt: "Sass Icon",
-    },
-    {
-      title: "React Native",
-      Icon: ReactIcon,
-      alt: "React Icon",
-    },
-    {
-      title: "Node",
-      Icon: NodeIcon,
-      alt: "Node Icon",
-    },
-  ],
-  other: [
-    {
-      title: "AntD",
-      Icon: AntDIcon,
-      alt: "Ant D Icon",
-    },
-    {
-      title: "Invision",
-      Icon: InvisionIcon,
-      alt: "Invision Icon",
-    },
-    {
-      title: "Sketch",
-      Icon: SketchIcon,
-      alt: "Sketch Icon",
-    },
-    {
-      title: "Webpack",
-      Icon: WebpackIcon,
-      alt: "Webpack Icon",
-    },
-  ],
-  testing: [
-    {
-      title: "Cypress",
-      Icon: CypressIcon,
-      alt: "Cypress Icon",
-    },
-    {
-      title: "React Testing Library",
-      Icon: ReactTestingLibraryIcon,
-      alt: "React Testing Library Icon",
-    },
-    {
-      title: "Jest",
-      Icon: JestIcon,
-      alt: "Jest Icon",
-    },
-  ],
+  const centerSkillsAnimation = useSpring({
+    from: { height: "0%", opacity: 0 },
+    to: { height: "100%", opacity: 1 },
+    config: config.slow,
+  })
+
+  const Testing = (
+    <TestingBlock style={sideSkillsAnimation}>
+      <Skills.TestingSkills />
+    </TestingBlock>
+  )
+
+  const Programming = (
+    <ProgrammingBlock style={centerSkillsAnimation}>
+      <Skills.ProgrammingSkills />
+    </ProgrammingBlock>
+  )
+
+  const Other = (
+    <OtherBlock style={sideSkillsAnimation}>
+      <Skills.OtherSkills />
+    </OtherBlock>
+  )
+
+  return (
+    <Layout>
+      <SEO title="Skills" />
+      <SkillsContainer>
+        {Testing}
+        {Programming}
+        {Other}
+      </SkillsContainer>
+    </Layout>
+  )
 }
 
-const SecondPage = () => (
-  <Layout>
-    <SEO title="Skills" />
-    <TestingSkills>
-      {skillsData.testing.map(otherSkill => (
-        <Skill>
-          <img src={otherSkill.Icon} alt={otherSkill.alt} />
-          <span>{otherSkill.title}</span>
-        </Skill>
-      ))}
-    </TestingSkills>
-    <ProgrammingSkills>
-      {skillsData.programming.map(programmingSkill => (
-        <Skill>
-          <img src={programmingSkill.Icon} alt={programmingSkill.alt} />
-          <span>{programmingSkill.title}</span>
-        </Skill>
-      ))}
-    </ProgrammingSkills>
-    <OtherSkills>
-      {skillsData.other.map(otherSkill => (
-        <Skill>
-          <img src={otherSkill.Icon} alt={otherSkill.alt} />
-          <span>{otherSkill.title}</span>
-        </Skill>
-      ))}
-    </OtherSkills>
-  </Layout>
-)
-
-export default SecondPage
+export default SkillsComponent

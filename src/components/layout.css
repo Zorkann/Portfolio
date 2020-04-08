@@ -3,8 +3,7 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   font-size: 62.5%;
-  height: 100vh;
-  background: rgb(15, 13, 56);
+  overflow-y: hidden;
 }
 
 body {
@@ -22,6 +21,6 @@ a {
 
 @media only screen and (max-width: 480px) {
   html {
-    font-size: 100%;
+    font-size: 62.5%;
   }
 }

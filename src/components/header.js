@@ -6,55 +6,71 @@ import styled from "styled-components"
 const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  align-items: center;
   grid-auto-rows: 8rem;
-  background: rgb(15, 13, 56);
+  grid-column: 1/13;
+  grid-row: 1/2;
 `
 
 const StyledLink = styled(Link)`
-  display: grid;
-  align-items: end;
-  padding: 0 1.5rem 1.5rem 1.5rem;
-  justify-items: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 2.5rem 1.5rem 2.5rem;
   :hover {
-    background-color: rgb(244, 8, 22);
+    background: linear-gradient(rgb(180, 13, 56), rgb(130, 8, 22));
   }
 `
 
 const HeaderTitle = styled.h1`
-  display: grid;
-  align-items: center;
-  grid-column-start: 2;
-  grid-column-end: 9;
+  grid-column: 2/5;
   margin: 0;
   font-size: 3.5rem;
 `
 
 const Nav = styled.nav`
-  display: grid;
-  grid-column-start: 9;
-  grid-column-end: 11;
-  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  grid-column: 10/12;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
+
+const navigationConfig = [
+  {
+    to: "/",
+    title: "Home",
+  },
+  {
+    to: "/skills",
+    title: "Skills",
+  },
+  {
+    to: "/about",
+    title: "About",
+  },
+  {
+    to: "/contact",
+    title: "Contact",
+  },
+]
 
 const Header = ({ siteTitle }) => (
   <Container>
     <HeaderTitle>{siteTitle}</HeaderTitle>
     <Nav>
-      <StyledLink to="/" activeStyle={{ backgroundColor: "rgb(244, 8, 22)" }}>
-        About
-      </StyledLink>
-      <StyledLink
-        to="/skills"
-        activeStyle={{ backgroundColor: "rgb(244, 8, 22)" }}
-      >
-        Skills
-      </StyledLink>
-      <StyledLink
-        to="/contact"
-        activeStyle={{ backgroundColor: "rgb(244, 8, 22)" }}
-      >
-        Contact
-      </StyledLink>
+      {navigationConfig.map(({ to, title }) => (
+        <StyledLink
+          to={to}
+          activeStyle={{
+            background: "linear-gradient(rgb(180, 13, 56), rgb(130, 8, 22))",
+          }}
+        >
+          {title}
+        </StyledLink>
+      ))}
     </Nav>
   </Container>
 )
