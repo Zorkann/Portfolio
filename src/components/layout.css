@@ -3,7 +3,6 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   font-size: 62.5%;
-  overflow-y: hidden;
 }
 
 body {
@@ -12,6 +11,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.4rem;
   color: white;
+  height: 100vh;
+  background: linear-gradient(rgb(15, 13, 56), rgb(130, 8, 22));
 }
 
 a {

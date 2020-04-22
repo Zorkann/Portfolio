@@ -40,7 +40,7 @@ const IconContainer = styled(animated.div)`
 
 const ButtonsContainer = styled(animated.div)`
   display: grid;
-  grid-template-columns: repeat(2, 15rem);
+  grid-template-columns: repeat(2, minmax(10rem, 15rem));
   grid-auto-rows: 7rem;
   align-items: end;
   grid-gap: 1rem;
@@ -70,7 +70,7 @@ const Description = (
   </DescriptionText>
 )
 const FindMe = (
-  <animated.div style={{ marginBottom: "0.5rem" }}>Fine Me on</animated.div>
+  <animated.div style={{ marginBottom: "0.5rem" }}>Find Me on</animated.div>
 )
 
 const Icons = (

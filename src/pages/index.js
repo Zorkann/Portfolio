@@ -11,11 +11,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  grid-column: 2/6;
+  grid-column: 2/8;
   grid-row: 4/9;
 
   @media (max-width: 768px) {
     grid-column: 2/12;
+    grid-row: 3/8;
   }
 `
 
@@ -38,13 +39,7 @@ const Home = () => {
       <SEO title="Home" />
       <Container>
         {trail.map(({ x, ...rest }, index) => (
-          <animated.div
-            key={index}
-            style={{
-              ...rest,
-              transform: x.interpolate(x => `translate3d(0,${x}px,0)`),
-            }}
-          >
+          <animated.div key={index} style={rest}>
             {HomeDescription[index]}
           </animated.div>
         ))}
