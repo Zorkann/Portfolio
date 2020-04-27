@@ -13,9 +13,6 @@ const Container = styled.div`
   grid-template-rows: repeat(12, 1fr);
   height: 100vh;
   background: linear-gradient(rgb(15, 13, 56), rgb(130, 8, 22));
-  @media (max-width: 1000px) {
-    height: 100%;
-  }
 `
 
 const Layout = ({ children }) => {
