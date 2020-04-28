@@ -10,9 +10,13 @@ import styled from "styled-components"
 const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr);
-  height: 100vh;
+  grid-template-rows: 8rem 8rem 1fr;
+  min-height: 100vh;
+  height: 100%;
   background: linear-gradient(rgb(15, 13, 56), rgb(130, 8, 22));
+  @media (max-width: 768px) {
+    grid-template-rows: 8rem 4rem 1fr;
+  }
 `
 
 const Layout = ({ children }) => {

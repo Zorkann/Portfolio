@@ -11,8 +11,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.4rem;
   color: white;
-  height: 100%;
-  background-color: rgb(130, 8, 22);
 }
 
 a {

@@ -12,7 +12,9 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   grid-column: 2/8;
-  grid-row: 4/9;
+  grid-row: 3/4;
+  margin-top: 12%;
+  height: 52%;
 
   @media (max-width: 768px) {
     grid-column: 2/12;

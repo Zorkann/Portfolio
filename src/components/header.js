@@ -5,11 +5,9 @@ import styled from "styled-components"
 import Burger from "../components/burger"
 
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  align-items: center;
-  grid-auto-rows: 8rem;
-  grid-column: 1/13;
+  display: flex;
+  justify-content: space-between;
+  grid-column: 2/12;
   grid-row: 1/2;
 `
 
@@ -26,9 +24,9 @@ const StyledLink = styled(Link)`
 `
 
 const HeaderTitle = styled.h1`
-  grid-column: 2/5;
   margin: 0;
   font-size: 3.5rem;
+  align-self: center;
 `
 
 const Nav = styled.nav`

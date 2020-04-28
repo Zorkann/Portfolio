@@ -18,7 +18,7 @@ const Block = styled(animated.div)`
 const TestingBlock = styled(Block)``
 
 const ProgrammingBlock = styled(Block)`
-  width: 80%;
+  width: 90%;
   justify-self: center;
 
   @media (max-width: 1000px) {
@@ -30,9 +30,10 @@ const OtherBlock = styled(Block)``
 const SkillsContainer = styled.div`
   display: grid;
   grid-template-columns: 2fr 3fr 2fr;
-  grid-template-rows: 1fr;
+  grid-template-rows: 1fr 4rem;
   grid-column: 3/11;
   grid-row: 3/12;
+  grid-gap: 2rem;
 
   @media (max-width: 1300px) {
     grid-column: 2/12;
@@ -40,16 +41,12 @@ const SkillsContainer = styled.div`
 
   @media (max-width: 1000px) {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr) 4rem;
     grid-column: 4/10;
-    grid-gap: 2rem;
   }
 
   @media (max-width: 500px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
     grid-column: 3/11;
-    grid-gap: 2rem;
   }
 `
 
