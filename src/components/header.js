@@ -16,7 +16,7 @@ const StyledLink = styled(Link)`
   align-items: flex-end;
   padding: 0 2.5rem 1.5rem 2.5rem;
   :hover {
-    background: linear-gradient(rgb(180, 13, 56), rgb(130, 8, 22));
+    background: #FD5C55;
   }
   @media (max-width: 768px) {
     padding: 1.5rem 2.5rem 1.5rem 2.5rem;
@@ -81,7 +81,7 @@ const Header = ({ siteTitle }) => {
           <StyledLink
             to={to}
             activeStyle={{
-              background: "linear-gradient(rgb(180, 13, 56), rgb(130, 8, 22))",
+              background: "#FD5C55",
             }}
           >
             {title}

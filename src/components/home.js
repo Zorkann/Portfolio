@@ -53,8 +53,8 @@ const Button = styled(animated.button)`
   color: white;
   outline: 0;
   :hover {
-    background: linear-gradient(rgb(180, 13, 56), rgb(130, 8, 22));
-    border-color: rgb(130, 8, 22);
+    background: #FD5C55;
+    border-color: #FD5C55;
     cursor: pointer;
   }
   padding-top: 1.6rem;

@@ -13,7 +13,7 @@ const Container = styled.div`
   grid-template-rows: 8rem 8rem 1fr;
   min-height: 100vh;
   height: 100%;
-  background: linear-gradient(rgb(15, 13, 56), rgb(130, 8, 22));
+  background: #202233;
   @media (max-width: 768px) {
     grid-template-rows: 8rem 4rem 1fr;
   }
