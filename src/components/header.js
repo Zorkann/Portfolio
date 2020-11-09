@@ -71,15 +71,15 @@ const navigationConfig = [
 
 const Header = ({ siteTitle }) => {
   const [isOpen, setOpen] = useState(false)
-  console.log(isOpen)
   return (
     <Container>
       <HeaderTitle>{siteTitle}</HeaderTitle>
       <Burger setOpen={() => setOpen(!isOpen)} />
       <Nav isOpen={isOpen}>
-        {navigationConfig.map(({ to, title }) => (
+        {navigationConfig.map(({ to, title }, index) => (
           <StyledLink
             to={to}
+            key={index}
             activeStyle={{
               background: "#FD5C55",
             }}

@@ -11,9 +11,6 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 8rem 8rem 1fr;
-  min-height: 100vh;
-  height: 100%;
-  background: #202233;
   @media (max-width: 768px) {
     grid-template-rows: 8rem 4rem 1fr;
   }
