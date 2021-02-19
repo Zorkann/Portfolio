@@ -1,93 +1,72 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useState } from "react"
-import styled from "styled-components"
-import Burger from "../components/burger"
+import React from "react"
+import HomeIcon from "@material-ui/icons/Home"
+import CodeIcon from "@material-ui/icons/Code"
+import ContactIcon from "@material-ui/icons/MailOutline"
+import GitHubIcon from "@material-ui/icons/GitHub"
+import FacebookIcon from "@material-ui/icons/Facebook"
+import InstagramIcon from "@material-ui/icons/Instagram"
+import LinkedInIcon from "@material-ui/icons/LinkedIn"
+import * as Styles from "./header.styles"
+import { Theme } from "./layout"
 
-const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  grid-column: 2/12;
-  grid-row: 1/2;
-`
-
-const StyledLink = styled(Link)`
-  display: flex;
-  align-items: flex-end;
-  padding: 0 2.5rem 1.5rem 2.5rem;
-  :hover {
-    background: #FD5C55;
-  }
-  @media (max-width: 768px) {
-    padding: 1.5rem 2.5rem 1.5rem 2.5rem;
-  }
-`
-
-const HeaderTitle = styled.h1`
-  margin: 0;
-  font-size: 3.5rem;
-  align-self: center;
-`
-
-const Nav = styled.nav`
-  display: flex;
-  justify-content: flex-end;
-  height: 100%;
-  grid-column: 6/12;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    justify-content: flex-start;
-    background-color: rgb(25, 13, 26);
-    width: ${({ isOpen }) => (isOpen ? "50%" : "0%")};
-    opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-    position: fixed;
-    padding-top: 10vh;
-    right: 0;
-    top: 0;
-    z-index: 1;
-    transition: 0.3s ease-in-out;
-  }
-`
+const { Container, HeaderTitle, LanguageOptions, Nav, ContactIcons } = Styles
 
 const navigationConfig = [
   {
     to: "/",
     title: "Home",
+    Icon: <HomeIcon />,
   },
   {
     to: "/skills",
     title: "Skills",
-  },
-  {
-    to: "/about",
-    title: "About",
+    Icon: <CodeIcon />,
   },
   {
     to: "/contact",
     title: "Contact",
+    Icon: <ContactIcon />,
   },
 ]
 
 const Header = ({ siteTitle }) => {
-  const [isOpen, setOpen] = useState(false)
   return (
     <Container>
       <HeaderTitle>{siteTitle}</HeaderTitle>
-      <Burger setOpen={() => setOpen(!isOpen)} />
-      <Nav isOpen={isOpen}>
-        {navigationConfig.map(({ to, title }, index) => (
-          <StyledLink
+      <LanguageOptions>
+        <span>EN</span>
+        <span>PL</span>
+      </LanguageOptions>
+      <Nav>
+        {navigationConfig.map(({ to, Icon }, index) => (
+          <Link
             to={to}
             key={index}
             activeStyle={{
-              background: "#FD5C55",
+              color: Theme.primary,
+              opacity: "1",
             }}
           >
-            {title}
-          </StyledLink>
+            {Icon}
+          </Link>
         ))}
       </Nav>
+      <ContactIcons>
+        <a href="https://github.com/Zorkann">
+          <GitHubIcon />
+        </a>
+        <a href="https://www.facebook.com/marcin.skowyra.9">
+          <FacebookIcon />
+        </a>
+        <a href="https://www.instagram.com/zoorkann/">
+          <InstagramIcon />
+        </a>
+        <a href="https://www.linkedin.com/in/marcin-skowyra-5524b7150/">
+          <LinkedInIcon />
+        </a>
+      </ContactIcons>
     </Container>
   )
 }

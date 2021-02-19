@@ -11,10 +11,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  grid-column: 2/8;
+  padding: 0 8rem;
   grid-row: 3/4;
-  margin-top: 12%;
-  height: 52%;
+  grid-column: 1/3;
+  height: 35rem;
 
   @media (max-width: 768px) {
     grid-column: 2/12;
@@ -24,7 +24,7 @@ const Container = styled.div`
 
 const config = {
   mass: 5,
-  tension: 2000,
+  tension: 1000,
   friction: 200,
 }
 
