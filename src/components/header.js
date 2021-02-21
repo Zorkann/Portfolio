@@ -31,10 +31,10 @@ const navigationConfig = [
   },
 ]
 
-const Header = ({ siteTitle }) => {
+const Header = () => {
   return (
     <Container>
-      <HeaderTitle>{siteTitle}</HeaderTitle>
+      <HeaderTitle>Portfolio</HeaderTitle>
       <LanguageOptions>
         <span>EN</span>
         <span>PL</span>

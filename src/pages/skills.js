@@ -1,11 +1,10 @@
-import React from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React from "react";
+import Layout from "../components/layout";
 
 const Skills = () => (
   <Layout>
-    <SEO title="Skills" />
+    <p>Skills</p>
   </Layout>
-)
+);
 
-export default Skills
+export default Skills;

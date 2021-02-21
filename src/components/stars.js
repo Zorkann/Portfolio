@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { keyframes } from "styled-components"
 
-const generateShadows = n => {
+const generateShadows = (n) => {
   const rand = () => Math.floor(Math.random() * 2001)
   let value = `${rand()}px ${rand()}px #FFF`
   for (let i = 0; i < n; i++) {
@@ -22,6 +22,7 @@ const animStart = keyframes`
 
 const StarsContainer = styled.div`
   #stars {
+    position: absolute;
     width: 1px;
     height: 1px;
     background: white;

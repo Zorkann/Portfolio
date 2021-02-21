@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 import { ThemeProvider } from "styled-components"
 import Header from "./header"
 import "./layout.css"
@@ -23,21 +22,11 @@ export const Theme = {
 }
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <ThemeProvider theme={Theme}>
       <Stars />
       <App>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header />
         {children}
       </App>
     </ThemeProvider>
