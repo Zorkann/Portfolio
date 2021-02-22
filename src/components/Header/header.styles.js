@@ -9,14 +9,19 @@ const Container = styled.div`
   grid-column: 1/5;
   grid-row: 1/2;
   background-color: #181818;
-  box-shadow: 0 2px 15px #1779ff;
+  box-shadow: ${({ theme }) => theme.glowing_shadow};
 
   a {
+    display: inline-block;
     opacity: 0.4;
-    margin-left: 20px;
     :hover {
       cursor: pointer;
       opacity: 1;
+    }
+
+    svg {
+      height: 100%;
+      width: 100%;
     }
 `
 
@@ -27,28 +32,50 @@ const HeaderTitle = styled.h1`
 `
 
 const LanguageOptions = styled.div`
-  font-weight: bold;
+  margin-left: 20px;
 
-  span {
+  button {
+    font-weight: bold;
+    background: transparent;
+    border: none;
+    color: white;
     cursor: pointer;
-    :first-child {
+    &[aria-current="true"] {
       color: ${({ theme }) => theme.primary};
-      margin-right: 10px;
+      text-shadow: ${({ theme }) => theme.glowing_shadow};
     }
   }
 `
 
+const LogoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  grid-column: 1/3;
+`
+
 const Nav = styled.nav`
-  svg {
-    font-size: 4rem;
+  a {
+    margin-left: 40px;
+    width: 3.6rem;
+    height: auto;
   }
 `
 
 const ContactIcons = styled(animated.div)`
   justify-self: end;
-  svg {
-    font-size: 2.5rem;
+
+  a {
+    margin-left: 20px;
+    width: 2.5rem;
+    height: auto;
   }
 `
 
-export { Container, HeaderTitle, LanguageOptions, Nav, ContactIcons }
+export {
+  Container,
+  HeaderTitle,
+  LanguageOptions,
+  Nav,
+  ContactIcons,
+  LogoWrapper,
+}

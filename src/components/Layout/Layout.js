@@ -1,11 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { ThemeProvider } from "styled-components"
-import Header from "./header"
+import Header from "../Header"
 import "./layout.css"
 import "normalize.css"
 import styled from "styled-components"
-import Stars from "./stars"
+import Stars from "../stars"
+import "../../i18n"
 
 const App = styled.div`
   display: grid;
