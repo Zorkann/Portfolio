@@ -7,7 +7,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
-      en: {
+      EN: {
         translation: {
           "Hello, I'm": "Hello, I'm",
           "A Frontend Developer interested in mobile and web apps":
@@ -16,17 +16,17 @@ i18n
           "Check my skills": "Check my skills",
         },
       },
-      pl: {
+      PL: {
         translation: {
-          "Hello, I'm": "PL",
-          "A Frontend Developer interested in mobile and web apps": "PL",
-          "Hire Me": "PL",
-          "Check my skills": "PL",
+          "Hello, I'm": "Cześć, jestem",
+          "A Frontend Developer interested in mobile and web apps":
+            "Frontend developer który interesuje się aplikacjami mobilnymi i webowymi",
+          "Hire Me": "Zatrudnij mnie",
+          "Check my skills": "Sprawdź co umiem",
         },
       },
     },
-    fallbackLng: "en",
-    lng: "en",
+    fallbackLng: "EN",
     debug: true,
 
     interpolation: {

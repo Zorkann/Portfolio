@@ -13,13 +13,15 @@ const Container = styled.div`
 
   a {
     display: inline-block;
-    opacity: 0.4;
+    color: rgba(255,255,255, 0.4);
+
     :hover {
       cursor: pointer;
-      opacity: 1;
+      color: rgba(255,255,255);
     }
 
     svg {
+      color: inherit;
       height: 100%;
       width: 100%;
     }

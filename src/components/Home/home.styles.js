@@ -33,7 +33,6 @@ const Button = styled(animated.button)`
   border-radius: 25px;
   background-color: transparent;
   color: white;
-  outline: 0;
   box-shadow: 0 1px 5px #1779ff;
   :hover {
     background: rgba(23, 121, 255, 0.8);

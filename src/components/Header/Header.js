@@ -60,20 +60,26 @@ const contactConfig = [
 const Header = () => {
   const { i18n } = useTranslation()
 
+  const changeLanguage = (event) => {
+    const lng = event.target.textContent
+    window.localStorage.setItem("i18nextLng", lng)
+    i18n.changeLanguage(lng)
+  }
+
   return (
     <Container>
       <LogoWrapper>
         <HeaderTitle>Portfolio</HeaderTitle>
         <LanguageOptions>
           <button
-            aria-current={i18n.language === "en"}
-            onClick={() => i18n.changeLanguage("en")}
+            aria-current={i18n.language === "EN"}
+            onClick={changeLanguage}
           >
             EN
           </button>
           <button
-            aria-current={i18n.language === "pl"}
-            onClick={() => i18n.changeLanguage("pl")}
+            aria-current={i18n.language === "PL"}
+            onClick={changeLanguage}
           >
             PL
           </button>
@@ -83,7 +89,7 @@ const Header = () => {
         {navigationConfig.map(({ to, Icon }, index) => (
           <Link
             to={to}
-            key={index}
+            key={to}
             activeStyle={{
               color: Theme.primary,
               opacity: "1",
@@ -95,7 +101,9 @@ const Header = () => {
       </Nav>
       <ContactIcons>
         {contactConfig.map(({ href, Icon }) => (
-          <a href={href}>{Icon}</a>
+          <a key={href} href={href}>
+            {Icon}
+          </a>
         ))}
       </ContactIcons>
     </Container>
