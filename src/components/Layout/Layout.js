@@ -6,7 +6,6 @@ import "./layout.css"
 import "normalize.css"
 import styled from "styled-components"
 import Stars from "../stars"
-import "../../i18n"
 
 const App = styled.div`
   display: grid;

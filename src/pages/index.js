@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 import HomeDescription from "../components/Home"
 import styled from "styled-components"
 import { useTrail, animated } from "react-spring"
+import { graphql } from "gatsby"
 
 const Container = styled.div`
   display: flex;
@@ -51,3 +52,17 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+export const query = graphql`
+  query($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`

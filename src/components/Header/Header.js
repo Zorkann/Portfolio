@@ -1,4 +1,3 @@
-import { Link } from "gatsby"
 import React from "react"
 import HomeIcon from "@material-ui/icons/Home"
 import CodeIcon from "@material-ui/icons/Code"
@@ -9,7 +8,7 @@ import InstagramIcon from "@material-ui/icons/Instagram"
 import LinkedInIcon from "@material-ui/icons/LinkedIn"
 import * as Styles from "./header.styles"
 import { Theme } from "../Layout"
-import { useTranslation } from "react-i18next"
+import { Link, useI18next } from "gatsby-plugin-react-i18next"
 
 const {
   Container,
@@ -58,31 +57,24 @@ const contactConfig = [
 ]
 
 const Header = () => {
-  const { i18n } = useTranslation()
-
-  const changeLanguage = (event) => {
-    const lng = event.target.textContent
-    window.localStorage.setItem("i18nextLng", lng)
-    i18n.changeLanguage(lng)
-  }
+  const { languages, originalPath, language } = useI18next()
 
   return (
     <Container>
       <LogoWrapper>
         <HeaderTitle>Portfolio</HeaderTitle>
         <LanguageOptions>
-          <button
-            aria-current={i18n.language === "EN"}
-            onClick={changeLanguage}
-          >
-            EN
-          </button>
-          <button
-            aria-current={i18n.language === "PL"}
-            onClick={changeLanguage}
-          >
-            PL
-          </button>
+          {languages.map((lng) => (
+            <li key={lng}>
+              <Link
+                to={originalPath}
+                language={lng}
+                aria-current={language === lng}
+              >
+                {lng.toUpperCase()}
+              </Link>
+            </li>
+          ))}
         </LanguageOptions>
       </LogoWrapper>
       <Nav>

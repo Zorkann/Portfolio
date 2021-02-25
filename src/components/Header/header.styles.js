@@ -33,18 +33,24 @@ const HeaderTitle = styled.h1`
   align-self: center;
 `
 
-const LanguageOptions = styled.div`
-  margin-left: 20px;
+const LanguageOptions = styled.ul`
+  display: flex;
+  list-style-type: none;
+  padding-inline-start: 2rem;
 
-  button {
-    font-weight: bold;
-    background: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
-    &[aria-current="true"] {
-      color: ${({ theme }) => theme.primary};
-      text-shadow: ${({ theme }) => theme.glowing_shadow};
+  li {
+    margin-left: 10px;
+
+    a {
+      font-weight: bold;
+      background: transparent;
+      border: none;
+      color: white;
+      cursor: pointer;
+      &[aria-current="true"] {
+        color: ${({ theme }) => theme.primary};
+        text-shadow: ${({ theme }) => theme.glowing_shadow};
+      }
     }
   }
 `

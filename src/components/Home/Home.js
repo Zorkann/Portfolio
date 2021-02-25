@@ -1,7 +1,6 @@
 import React from "react"
-import { navigate } from "gatsby"
 import * as Styles from "./home.styles"
-import { useTranslation } from "react-i18next"
+import { useI18next } from "gatsby-plugin-react-i18next"
 
 const {
   GreetingText,
@@ -12,13 +11,13 @@ const {
 } = Styles
 
 const Greeting = () => {
-  const { t } = useTranslation()
+  const { t } = useI18next()
   return <GreetingText>{t("Hello, I'm")}</GreetingText>
 }
 const Name = () => <NameText>Marcin</NameText>
 const Surname = () => <NameText>Skowyra</NameText>
 const Description = () => {
-  const { t } = useTranslation()
+  const { t } = useI18next()
   return (
     <DescriptionText>
       {t("A Frontend Developer interested in mobile and web apps")}
@@ -27,7 +26,7 @@ const Description = () => {
 }
 
 const Buttons = () => {
-  const { t } = useTranslation()
+  const { t, navigate } = useI18next()
   return (
     <ButtonsContainer>
       <Button onClick={() => navigate("/contact")}>{t("Hire Me")}</Button>
